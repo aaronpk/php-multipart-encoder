@@ -3,7 +3,7 @@ PHP Multipart Encoder
 
 This library will build a Multipart-encoded string suitable for use in HTTP requests.
 
-The built-in cURL library does not properly encode values that ar arrays when it builds
+The built-in cURL library does not properly encode values that are arrays when it builds
 a multipart request. For example, this request results in a "Notice: Array to string conversion"
 and the value of the parameter is "Array":
 
