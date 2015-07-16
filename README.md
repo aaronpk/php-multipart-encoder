@@ -78,6 +78,11 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
 curl_exec($ch);
 ```
 
+See PHP Bugs:
+
+* https://bugs.php.net/bug.php?id=51634
+* https://bugs.php.net/bug.php?id=66436
+
 This library can be used in place of cURL's built-in encoding.
 
 
