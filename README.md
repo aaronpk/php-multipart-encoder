@@ -3,27 +3,6 @@ PHP Multipart Encoder
 
 This library will build a Multipart-encoded string suitable for use in HTTP requests.
 
-The built-in cURL library does not properly encode values that are arrays when it builds
-a multipart request. For example, this request results in a "Notice: Array to string conversion"
-and the value of the parameter is "Array":
-
-```php
-$params = array(
-  'category' => [
-    'one',
-    'two'
-  ]
-);
-
-$ch = curl_init('http://localhost:8000/server.php');
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
-curl_exec($ch);
-```
-
-This library can be used in place of cURL's built-in encoding.
-
-
 ## Usage
 
 Requiring from `composer.json`:
@@ -78,6 +57,29 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 
 curl_exec($ch);
 ```
+
+## Background 
+
+The built-in cURL library does not properly encode values that are arrays when it builds
+a multipart request. For example, this request results in a "Notice: Array to string conversion"
+and the value of the parameter is "Array":
+
+```php
+$params = array(
+  'category' => [
+    'one',
+    'two'
+  ]
+);
+
+$ch = curl_init('http://localhost:8000/server.php');
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+curl_exec($ch);
+```
+
+This library can be used in place of cURL's built-in encoding.
+
 
 ## Testing
 
