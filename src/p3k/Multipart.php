@@ -42,8 +42,9 @@ class Multipart {
     $this->_addPartHeader();
     $this->_data .= 'Content-Disposition: form-data; name="' . $key . '"; filename="' . basename($filename) . '"' . self::EOL;
     $this->_data .= 'Content-Type: ' . $type . self::EOL;
+    $this->_data .= 'Content-Transfer-Encoding: binary' . self::EOL;
     $this->_data .= self::EOL;
-    $this->_data .= base64_encode(file_get_contents($filename)) . self::EOL;
+    $this->_data .= file_get_contents($filename) . self::EOL;
   }
 
   public function contentType() {
