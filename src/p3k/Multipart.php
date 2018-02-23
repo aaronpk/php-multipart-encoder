@@ -38,13 +38,14 @@ class Multipart {
     $this->_data .= $value . self::EOL;
   }
 
-  public function addFile($key, $filename, $type) {
+  public function addFile($key, $filename, $type, $content = null) {
     $this->_addPartHeader();
     $this->_data .= 'Content-Disposition: form-data; name="' . $key . '"; filename="' . basename($filename) . '"' . self::EOL;
     $this->_data .= 'Content-Type: ' . $type . self::EOL;
     $this->_data .= 'Content-Transfer-Encoding: binary' . self::EOL;
     $this->_data .= self::EOL;
-    $this->_data .= file_get_contents($filename) . self::EOL;
+    if (!$content) $this->_data .= file_get_contents($filename) . self::EOL;
+    else $this->_data .= $content . self::EOL;
   }
 
   public function contentType() {
