@@ -1,5 +1,5 @@
 // Node.js requires a third party library to do multipart parsing
-// This is ostly taken from the example at https://github.com/mscdex/busboy
+// This is mostly taken from the example at https://github.com/mscdex/busboy
 
 var http = require('http');
 
